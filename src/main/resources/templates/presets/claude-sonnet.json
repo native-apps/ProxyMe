@@ -1,0 +1,27 @@
+{
+  "name": "Claude Sonnet 4.5",
+  "description": "Anthropic's Claude Sonnet 4.5 - Balanced intelligence and speed (Add your API key)",
+  "version": "2.1",
+  "isPreset": true,
+  "models": [
+    {
+      "modelName": "claude-sonnet-4-5",
+      "apiProvider": "anthropic",
+      "apiEndpoint": "https://api.anthropic.com/v1/messages",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "temperature": 0.3,
+      "stream": true,
+      "customHeaders": {
+        "Content-Type": "application/json"
+      },
+      "customBodyParams": {}
+    }
+  ],
+  "proxySettings": {
+    "port": 3000,
+    "host": "localhost",
+    "autoLaunch": false
+  }
+}

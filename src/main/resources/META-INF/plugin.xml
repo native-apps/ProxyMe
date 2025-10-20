@@ -1,0 +1,240 @@
+<!-- Plugin Configuration File for ProxyMe -->
+<idea-plugin require-restart="false">
+    <id>com.proxyme.rider</id>
+    <name>ProxyMe</name>
+    <version>2.1.0-build4</version>
+    <vendor email="support@proxyme.dev" url="https://proxyme.dev">ProxyMe</vendor>
+
+    <description><![CDATA[
+    <h1>ProxyMe - AI Proxy Manager for Rider IDE</h1>
+    <p>A comprehensive control panel for managing local AI proxy servers with DeepSeek, Perplexity, and custom AI models.</p>
+
+    <h2>Features:</h2>
+    <ul>
+        <li>Launch and manage proxy server directly from Rider IDE</li>
+        <li>Real-time proxy status monitoring (Active/Warning/Inactive)</li>
+        <li>Configure custom ports and API endpoints</li>
+        <li>Add multiple AI models and API keys</li>
+        <li>Auto-launch on Rider IDE startup</li>
+        <li>View proxy logs in Terminal or dedicated log files</li>
+        <li>Template manager for saving and loading configurations</li>
+        <li>Project-specific settings with user templates</li>
+        <li>.env files stored securely outside project directory</li>
+    </ul>
+
+    <h2>Supported AI Providers:</h2>
+    <ul>
+        <li>DeepSeek (deepseek-chat, deepseek-coder, deepseek-reasoner)</li>
+        <li>Perplexity Sonar (sonar, sonar-pro, sonar-reasoning)</li>
+        <li>Custom OpenAI-compatible APIs</li>
+    </ul>
+
+    <p>Perfect for developers who want to use custom AI models with Rider IDE's AI Assistant without exposing API keys or relying on third-party services.</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h2>Version 2.1.0 Build 4</h2>
+    <ul>
+        <li><strong>CRITICAL:</strong> Fixed Anthropic (Claude) API key not being generated in .env file</li>
+        <li><strong>CRITICAL:</strong> Fixed OpenAI API key support added to .env generation</li>
+        <li><strong>CRITICAL:</strong> Enhanced restart safety - now takes 10-15 seconds with complete process separation</li>
+        <li><strong>CRITICAL:</strong> .env file now regenerated on every restart with all configured API keys</li>
+        <li><strong>IMPROVED:</strong> Restart process split into 4 distinct phases for better reliability</li>
+        <li><strong>IMPROVED:</strong> Extended wait times between phases (7 seconds for cleanup, 2 seconds for file sync)</li>
+        <li><strong>IMPROVED:</strong> Better error handling and logging during restart process</li>
+        <li><strong>FIXED:</strong> Models with API keys now properly written to .env on save and restart</li>
+    </ul>
+
+    <h2>Version 2.1.0 Build 3</h2>
+    <ul>
+        <li><strong>NEW:</strong> Claude Sonnet 4.5 preset template added</li>
+        <li><strong>IMPROVED:</strong> Default temperature lowered to 0.3 for more focused, precise responses</li>
+        <li><strong>IMPROVED:</strong> Enhanced restart safety with longer wait times (5-10 seconds)</li>
+        <li><strong>IMPROVED:</strong> Better error handling during restart to prevent crashes</li>
+        <li><strong>IMPROVED:</strong> Plugin settings now visible before project loads</li>
+        <li><strong>IMPROVED:</strong> Comprehensive recommended settings guide added to README</li>
+        <li><strong>FIXED:</strong> Restart Proxy crash improved with better async handling</li>
+        <li><strong>FIXED:</strong> Auto-launch disabled by default (confirmed)</li>
+    </ul>
+
+    <h2>Version 2.1.0 Build 2</h2>
+    <ul>
+        <li><strong>FIXED:</strong> Rider IDE crash when clicking "Restart Proxy" button</li>
+        <li><strong>FIXED:</strong> Removed confusing Category field (Rider assigns models to functions)</li>
+        <li><strong>IMPROVED:</strong> Async restart with proper cleanup and safety mechanisms</li>
+        <li><strong>IMPROVED:</strong> Models.json auto-regenerated on every restart</li>
+    </ul>
+
+    <h2>Version 2.1.0 Build 1</h2>
+    <ul>
+        <li><strong>NEW:</strong> Dynamic model control - only enabled models appear in Rider AI Assistant</li>
+        <li><strong>NEW:</strong> Temperature slider per model (0.0 - 2.0)</li>
+        <li><strong>NEW:</strong> Stream toggle per model</li>
+        <li><strong>NEW:</strong> Custom headers and body parameters support (ProxyAI-inspired)</li>
+        <li><strong>NEW:</strong> models.json configuration file for proxy</li>
+        <li><strong>IMPROVED:</strong> Removed redundant Contexts column (Rider handles this natively)</li>
+        <li><strong>IMPROVED:</strong> Removed Templates submenu (Load/Save buttons are sufficient)</li>
+        <li><strong>IMPROVED:</strong> Enhanced model edit dialog with clearer information</li>
+        <li><strong>IMPROVED:</strong> proxy.js now reads models dynamically from configuration</li>
+        <li><strong>FIXED:</strong> Models table now actually controls which models Rider sees</li>
+    </ul>
+
+    <h2>Version 2.0.0</h2>
+    <ul>
+        <li><strong>NEW:</strong> Enhanced model configuration with API key column</li>
+        <li><strong>NEW:</strong> Context assignment (Chat, Inline Edit, Auto Apply, Commits, Naming)</li>
+        <li><strong>NEW:</strong> Professional model edit dialog</li>
+        <li><strong>NEW:</strong> Template management system with presets</li>
+        <li><strong>NEW:</strong> Load Template dialog with preview</li>
+        <li><strong>NEW:</strong> Save Template dialog with security options</li>
+        <li><strong>NEW:</strong> 7 preset templates (recommended, all-deepseek, all-perplexity, etc.)</li>
+        <li><strong>NEW:</strong> API key masking for security (sk-••••-1234)</li>
+        <li><strong>IMPROVED:</strong> Per-model API key configuration</li>
+        <li><strong>IMPROVED:</strong> Secure .env file generation with chmod 600</li>
+        <li><strong>IMPROVED:</strong> Better settings organization</li>
+        <li><strong>FIXED:</strong> Template persistence and loading</li>
+    </ul>
+
+    <h2>Version 1.0.0</h2>
+    <ul>
+        <li>Initial release</li>
+        <li>Basic proxy control panel UI</li>
+        <li>Settings management system</li>
+        <li>Template save/load functionality</li>
+        <li>Auto-launch capability</li>
+        <li>Status monitoring</li>
+    </ul>
+    ]]></change-notes>
+
+    <!-- Compatible with Rider 2024.3+ and newer versions -->
+    <idea-version since-build="243.0" until-build="300.*"/>
+
+    <!-- Rider-specific dependency -->
+    <depends>com.intellij.modules.rider</depends>
+
+    <!-- Optional: AI Assistant integration (if installed) -->
+    <depends optional="true" config-file="proxyme-aiassistant.xml">com.intellij.plugins.ai.assistant</depends>
+
+    <!-- Extension Points -->
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!-- Project-Level Settings (main configuration) -->
+        <!-- v2.1.0 Build 3: Removed nonDefaultProject="true" so settings are visible before project loads -->
+        <projectConfigurable
+            parentId="tools"
+            instance="com.proxyme.rider.ProxyMeConfigurable"
+            id="com.proxyme.rider.ProxyMeConfigurable"
+            displayName="ProxyMe"/>
+
+        <!-- Application-Level Settings (user templates) - submenu under ProxyMe -->
+        <!-- REMOVED in v2.1.0: Load/Save buttons in main settings are sufficient -->
+        <!--
+        <applicationConfigurable
+            parentId="com.proxyme.rider.ProxyMeConfigurable"
+            instance="com.proxyme.rider.ProxyMeTemplatesConfigurable"
+            id="com.proxyme.rider.ProxyMeTemplatesConfigurable"
+            displayName="Templates"
+            groupWeight="100"/>
+        -->
+
+        <!-- Project-Level Settings Service -->
+        <projectService
+            serviceImplementation="com.proxyme.rider.ProxyMeSettings"/>
+
+        <!-- Application-Level Template Settings Service -->
+        <applicationService
+            serviceImplementation="com.proxyme.rider.ProxyMeTemplateSettings"/>
+
+        <!-- Project Service: Manages proxy lifecycle -->
+        <projectService
+            serviceImplementation="com.proxyme.rider.ProxyMeProjectService"/>
+
+        <!-- Application Service: Manages user templates -->
+        <applicationService
+            serviceImplementation="com.proxyme.rider.ProxyMeTemplateService"/>
+
+        <!-- Application Service: Manages .env files in user directory -->
+        <applicationService
+            serviceImplementation="com.proxyme.rider.ProxyMeEnvFileService"/>
+
+        <!-- Application Service: Manages models.json configuration file -->
+        <applicationService
+            serviceImplementation="com.proxyme.rider.ProxyMeModelsConfigService"/>
+
+        <!-- Startup Activity: Auto-launch proxy if enabled -->
+        <postStartupActivity
+            implementation="com.proxyme.rider.ProxyMeStartupActivity"/>
+
+        <!-- Notification Group -->
+        <notificationGroup
+            id="ProxyMe.Notifications"
+            displayType="BALLOON"
+            isLogByDefault="true"/>
+
+        <!-- Tool Window: Status and Logs Viewer -->
+        <toolWindow
+            id="ProxyMe"
+            anchor="bottom"
+            icon="AllIcons.Actions.Lightning"
+            factoryClass="com.proxyme.rider.ProxyMeToolWindowFactory"/>
+
+        <!-- Status Bar Widget -->
+        <statusBarWidgetFactory
+            id="ProxyMeStatusBarWidget"
+            implementation="com.proxyme.rider.ui.ProxyMeStatusBarWidget$Factory"
+            order="after memoryIndicator"/>
+
+    </extensions>
+
+    <!-- Actions -->
+    <actions>
+        <!-- Main Menu: Tools → ProxyMe -->
+        <group id="ProxyMe.MainMenu" text="ProxyMe" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+            <action id="ProxyMe.LaunchProxy"
+                    class="com.proxyme.rider.actions.LaunchProxyAction"
+                    text="Launch Proxy Server"
+                    description="Start the ProxyMe proxy server"
+                    icon="AllIcons.Actions.Execute"/>
+
+            <action id="ProxyMe.StopProxy"
+                    class="com.proxyme.rider.actions.StopProxyAction"
+                    text="Stop Proxy Server"
+                    description="Stop the ProxyMe proxy server"
+                    icon="AllIcons.Actions.Suspend"/>
+
+            <action id="ProxyMe.RestartProxy"
+                    class="com.proxyme.rider.actions.RestartProxyAction"
+                    text="Restart Proxy Server"
+                    description="Restart the ProxyMe proxy server"
+                    icon="AllIcons.Actions.Restart"/>
+
+            <separator/>
+
+            <action id="ProxyMe.ViewLogs"
+                    class="com.proxyme.rider.actions.ViewLogsAction"
+                    text="View Proxy Logs"
+                    description="Open proxy logs in tool window"
+                    icon="AllIcons.Actions.ShowAsTree"/>
+
+            <action id="ProxyMe.OpenSettings"
+                    class="com.proxyme.rider.actions.OpenSettingsAction"
+                    text="Settings..."
+                    description="Open ProxyMe settings"
+                    icon="AllIcons.General.Settings"/>
+        </group>
+
+        <!-- Status Bar Widget Action -->
+        <action id="ProxyMe.StatusBarClick"
+                class="com.proxyme.rider.actions.StatusBarClickAction"
+                text="ProxyMe Status"
+                description="Click to view proxy status"/>
+    </actions>
+
+    <!-- Project Components (if needed for legacy support) -->
+    <project-components>
+        <!-- Empty for now, using services instead -->
+    </project-components>
+
+</idea-plugin>

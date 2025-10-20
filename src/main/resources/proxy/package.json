@@ -1,0 +1,47 @@
+{
+  "name": "rider-ai-proxy",
+  "version": "2.1.0",
+  "description": "OpenAI-compatible proxy server for JetBrains Rider IDE AI Assistant - supports multiple AI providers",
+  "main": "proxy.js",
+  "scripts": {
+    "start": "node proxy.js",
+    "dev": "DEBUG=true node proxy.js",
+    "test": "node test-setup.js",
+    "test:verbose": "DEBUG=true node test-setup.js",
+    "health": "curl -s http://localhost:3000/health | json_pp || curl http://localhost:3000/health"
+  },
+  "keywords": [
+    "rider",
+    "jetbrains",
+    "ai-assistant",
+    "proxy",
+    "openai",
+    "openai-compatible",
+    "deepseek",
+    "perplexity",
+    "sonar",
+    "anthropic",
+    "claude",
+    "llm",
+    "chat-completion",
+    "ide-plugin"
+  ],
+  "author": "ProxyMe Contributors",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/native-apps/proxyme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/native-apps/proxyme/issues"
+  },
+  "homepage": "https://github.com/native-apps/proxyme#readme"
+}

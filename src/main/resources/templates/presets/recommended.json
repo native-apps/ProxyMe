@@ -1,0 +1,41 @@
+{
+  "name": "Recommended Setup",
+  "description": "Best general-purpose setup: DeepSeek Chat + Sonar with optimized temperatures (Add your API keys)",
+  "version": "2.1",
+  "isPreset": true,
+  "models": [
+    {
+      "modelName": "deepseek-chat",
+      "apiProvider": "deepseek",
+      "apiEndpoint": "https://api.deepseek.com/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "temperature": 0.3,
+      "stream": true,
+      "customHeaders": {
+        "Content-Type": "application/json"
+      },
+      "customBodyParams": {}
+    },
+    {
+      "modelName": "sonar",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "temperature": 0.3,
+      "stream": true,
+      "customHeaders": {
+        "Content-Type": "application/json"
+      },
+      "customBodyParams": {}
+    }
+  ],
+  "proxySettings": {
+    "port": 3000,
+    "host": "localhost",
+    "autoLaunch": false
+  }
+}

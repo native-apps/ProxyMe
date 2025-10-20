@@ -1,0 +1,187 @@
+# IntelliJ IDEA / JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.idea_modules/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle-cache/
+
+# Node.js (in proxy)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Environment files - SECURITY CRITICAL
+.env
+*.env.local
+*.env.*.local
+.env.development
+.env.production
+*.env.backup
+
+# API Keys and Secrets - NEVER COMMIT
+*api_key*
+*API_KEY*
+*secret*
+*SECRET*
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Build output
+dist/
+target/
+*.zip
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+!release/*.zip
+
+# IDE specific
+*.swp
+*.swo
+*~
+.vscode/
+.vs/
+
+# Personal/Development files
+TODO.md
+NOTES.md
+SCRATCH.md
+temp/
+tmp/
+*.tmp
+*.bak
+*.backup
+
+# ProxyMe user data directories (should be in ~/.proxyme/)
+.proxyme/
+proxyme-data/
+
+# Sensitive markdown files (internal dev logs)
+*_PRIVATE.md
+*_INTERNAL.md
+SESSION_*.md
+BUILD_SUCCESS_*.md
+HOTFIX_*.md
+PHASE*_COMPLETE.md
+PHASE*_TESTING*.md
+PHASE*_PROGRESS.md
+*_SUMMARY.md
+NEXT_SESSION*.md
+SETTINGS_REDESIGN*.md
+*_IMPLEMENTATION_*.md
+RELEASE_V*.md
+INSTALL_V*.md
+
+# Testing artifacts
+test-output/
+.test/
+coverage/
+.nyc_output/
+htmlcov/
+.pytest_cache/
+.coverage
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# Python (if any utility scripts exist)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist-python/
+.venv/
+venv/
+ENV/
+
+# Ruby (if any utility scripts exist)
+*.gem
+*.rbc
+.bundle/
+vendor/bundle
+
+# Build scripts artifacts
+script.py
+script_*.py
+proxy-helper.sh
+build-helper.*
+*.build.log
+
+# Sensitive user paths - NEVER COMMIT
+**/Users/*/.proxyme/
+**/home/*/.proxyme/
+C:/Users/*/.proxyme/
+
+# JetBrains specific
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+.idea/dictionaries/
+.idea/httpRequests/
+.idea/sonarlint/
+.idea/inspectionProfiles/
+
+# Sandbox (development)
+build/idea-sandbox/
+
+# Distribution builds (keep only release folder)
+build/distributions/*.zip
+!build/distributions/ProxyMe-*.zip
+
+# Keep specific important files (exceptions)
+!README.md
+!LICENSE
+!CONTRIBUTING.md
+!BUILD.md
+!INSTALL.md
+!TROUBLESHOOTING.md
+!ROADMAP.md

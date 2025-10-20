@@ -1,0 +1,101 @@
+{
+  "name": "Complete Setup",
+  "description": "All 7 models configured (Power user setup - Add your API keys)",
+  "version": "2.0",
+  "isPreset": true,
+  "models": [
+    {
+      "modelName": "deepseek-chat",
+      "apiProvider": "deepseek",
+      "apiEndpoint": "https://api.deepseek.com/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit",
+        "commits",
+        "naming"
+      ]
+    },
+    {
+      "modelName": "deepseek-reasoner",
+      "apiProvider": "deepseek",
+      "apiEndpoint": "https://api.deepseek.com/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit"
+      ]
+    },
+    {
+      "modelName": "sonar",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit",
+        "naming"
+      ]
+    },
+    {
+      "modelName": "sonar-pro",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit",
+        "commits",
+        "naming"
+      ]
+    },
+    {
+      "modelName": "sonar-reasoning",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit"
+      ]
+    },
+    {
+      "modelName": "sonar-reasoning-pro",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit"
+      ]
+    },
+    {
+      "modelName": "sonar-deep-research",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": false,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat"
+      ]
+    }
+  ],
+  "proxySettings": {
+    "port": 3000,
+    "host": "localhost",
+    "autoLaunch": false
+  }
+}

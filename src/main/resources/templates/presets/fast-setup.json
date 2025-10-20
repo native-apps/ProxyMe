@@ -1,0 +1,40 @@
+{
+  "name": "Fast Setup",
+  "description": "Optimized for speed with fast-response models",
+  "version": "2.0",
+  "isPreset": true,
+  "models": [
+    {
+      "modelName": "deepseek-chat",
+      "apiProvider": "deepseek",
+      "apiEndpoint": "https://api.deepseek.com/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit",
+        "commits",
+        "naming"
+      ]
+    },
+    {
+      "modelName": "sonar",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit",
+        "naming"
+      ]
+    }
+  ],
+  "proxySettings": {
+    "port": 3000,
+    "host": "localhost",
+    "autoLaunch": false
+  }
+}

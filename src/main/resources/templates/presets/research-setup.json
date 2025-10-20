@@ -1,0 +1,48 @@
+{
+  "name": "Research Setup",
+  "description": "Optimized for research and complex reasoning tasks",
+  "version": "2.0",
+  "isPreset": true,
+  "models": [
+    {
+      "modelName": "deepseek-reasoner",
+      "apiProvider": "deepseek",
+      "apiEndpoint": "https://api.deepseek.com/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit"
+      ]
+    },
+    {
+      "modelName": "sonar-reasoning-pro",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit"
+      ]
+    },
+    {
+      "modelName": "sonar-deep-research",
+      "apiProvider": "perplexity",
+      "apiEndpoint": "https://api.perplexity.ai/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat"
+      ]
+    }
+  ],
+  "proxySettings": {
+    "port": 3000,
+    "host": "localhost",
+    "autoLaunch": false
+  }
+}

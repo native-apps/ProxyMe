@@ -1,0 +1,27 @@
+{
+  "name": "DeepSeek Only",
+  "description": "Minimal setup with DeepSeek Chat only (Add your API key)",
+  "version": "2.0",
+  "isPreset": true,
+  "models": [
+    {
+      "modelName": "deepseek-chat",
+      "apiProvider": "deepseek",
+      "apiEndpoint": "https://api.deepseek.com/chat/completions",
+      "apiKey": "",
+      "enabled": true,
+      "modelCategory": "core",
+      "assignedContexts": [
+        "chat",
+        "inline_edit",
+        "commits",
+        "naming"
+      ]
+    }
+  ],
+  "proxySettings": {
+    "port": 3000,
+    "host": "localhost",
+    "autoLaunch": false
+  }
+}
