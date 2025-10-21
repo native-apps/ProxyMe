@@ -91,6 +91,38 @@ ProxyMe is a comprehensive control panel plugin that lets you manage local AI pr
 3. **Verify installation:**
    - Check `Tools` menu for `ProxyMe`
 
+#### Visual Installation Guide
+
+**Step 1: Install Dependencies**
+
+![ProxyMe Install Dependencies](docs/images/1-proxyme-install-dependancies.jpg)
+
+The main settings panel shows dependency status. Click "Reinstall" if needed to install Node.js dependencies.
+
+**Step 2: Configure Log Directory**
+
+![Choose Local Directory for Logs](docs/images/2-choose-local-user-directory-for-logs.jpg)
+
+Configure your local user directory for logs and set up the proxy server settings. The model configuration table shows your enabled AI models.
+
+**Step 3: Use Prebuilt Templates**
+
+![Use Prebuilt Templates or Your Own](docs/images/3-use-prebuilt-templates-or-your-own-templates.jpg)
+
+Load prebuilt templates for quick setup or create your own custom templates. Preview shows the configuration before loading.
+
+**Step 4: Add Your Own Model (BYOK)**
+
+![BYOK - Add Your Own Model](docs/images/4-byok-add-your-own-model.jpg)
+
+Bring Your Own Key (BYOK) - Add custom AI models with your API keys. Configure temperature and streaming options per model.
+
+**Step 5: Configure Rider AI Assistant**
+
+![Click Test Connection to Refresh Models](docs/images/5-click-test-connection-to-refresh-your-models.jpg)
+
+Configure Rider's AI Assistant to connect to ProxyMe proxy server at `http://localhost:3000/v1`. Click "Test Connection" to refresh available models.
+
 #### Option 2: Build from Source
 
 See [BUILD.md](BUILD.md) for detailed instructions.
